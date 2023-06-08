@@ -110,7 +110,7 @@ export default function SingleProduct(){
     useEffect(()=>{
         const getProduct = async()=>{
             try {
-                const res = await axios.get(`http://localhost:80/api/products/find/${id}`);
+                const res = await axios.get(`https://ecommerce-server-k26h.onrender.com/api/products/find/${id}`);
                 setProduct(res.data);
             } catch (error) {
             }

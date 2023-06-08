@@ -19,8 +19,8 @@ export default function ProductCatalog({cat,filters,sort}){
         const getProducts = async ()=>{
             try {
                 const res = await axios.get(
-                    cat ? `http://localhost:80/api/products?category=${cat}`
-                        : "http://localhost:80/api/products"
+                    cat ? `https://ecommerce-server-k26h.onrender.com/api/products?category=${cat}`
+                        : "https://ecommerce-server-k26h.onrender.com/api/products"
                     );
                 setProducts(res.data);
             } catch (err) {}
