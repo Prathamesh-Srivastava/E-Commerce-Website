@@ -4,6 +4,7 @@ import background from "../Images/login_background.avif";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import { login } from "../redux/apiCalls";
+import Home from "./HomePage";
 
 const Container = styled.div`
 width:100vw;
@@ -66,12 +67,17 @@ export default function Login(){
     const [username,setUsername] = useState({});
     const [password,setpassword] = useState({});
     const dispatch = useDispatch();
-    const {isFetching, error} = useSelector((state)=> state.user);
+    const {success, isFetching, error} = useSelector((state)=> state.user);
 
-    const handleClick = (e)=>{
+    const handleClick = async (e)=>{
         e.preventDefault();
-        login(dispatch,{username,password});
+        await login(dispatch,{username,password});
     }
+
+    if(success){
+        return <Home />;
+    }
+    
     return (
         <Container>
         <Wrapper>
